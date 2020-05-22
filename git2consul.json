@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "logger": {
+    "name": "git2consul",
+    "streams": [
+      {
+        "level": "trace",
+        "stream": "process.stdout"
+      },
+      {
+        "level": "debug",
+        "stream": "process.stdout"
+      }
+    ]
+  },
+  "repos": [
+    {
+      "name": "config",
+      "url": "git@github.com:ordfanger/gov-paperwork-configuration.git",
+      "include_branch_name": false,
+      "branches": [
+        "master"
+      ]
+    }
+  ]
+}

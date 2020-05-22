@@ -1,0 +1,35 @@
+server:
+  port: 0
+  forward-headers-strategy: framework
+
+springdoc:
+  swagger-ui:
+    path: /api-docs
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://{your-okta-url}/oauth2/default
+  cloud:
+    consul:
+      discovery:
+        healthCheckPath: /actuator/health
+        instanceId: ${spring.application.name}:${random.value}
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+gov:
+  paperwork:
+    okta-url: https://{your-okta-url}
+    okta-client-id: {clien-id}
+    okta-client-secret: {client-secret}
+    okta-api-token: {api-token}
